@@ -24,9 +24,9 @@ const App = () => {
         setError('');
 
         const response = await getAllImages(page, query);
-        setImages(prev => (prev ? [...prev, ...response.hits] : response.hits));
+        setImages(prev => [...prev, ...response.hits]);
         setHasMoreImages(
-          response.total <= 12 ? false : response.hits.length > 0
+          response.total <= 12 ? false : response.hits.length > 3
         );
       } catch (error) {
         setError(error.message);
